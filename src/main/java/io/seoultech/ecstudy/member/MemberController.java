@@ -1,5 +1,6 @@
 package io.seoultech.ecstudy.member;
 
+import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,6 +32,8 @@ public class MemberController {
 
     Member member = new Member(request.getUserId(), request.getPassword());
     Member savedMember = memberRepository.save(member);
+
+    memberRepository.findById(1L);
     System.out.println(request.getUserId() + " " + request.getPassword());
     return savedMember;
   }
